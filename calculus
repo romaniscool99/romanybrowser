@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui, shrink-to-fit=yes">
+      <title>romany | search</title>
+      <link href="search.css" rel="stylesheet" type="text/css" />
+      <link href="alert.css" rel="stylesheet" type="text/css" />
+      <link rel="manifest" href="manifest.json"/>
+      <link rel="icon" href="toro.png">
+      <meta property="og:title" content="romany">
+      <meta name="theme-color" content="#00ffa6">
+      <meta name="msapplication-TileColor" content="#00ffa6">
+      <meta property="og:image" content="toro.png">
+      <meta name="description" content="the site just for you">
+      <script src="moresettings.js"></script>
+      <script src="frame.js"></script>
+      <meta property="og:description" content="the site just for you">
+
+</head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43Q4DLBWP2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-43Q4DLBWP2');
+    </script>
+<body>
+    <script src="alert.js"></script>
+    <div class="message-box" id="messageBox"></div>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'></script>
+    <script src='jquery-1.11.1.min.js'></script>
+    <header>
+        <img class="logo" src="toro.png" onclick="window.location.href='/';">
+        <form id="uv-form">
+            <input id="uv-search-engine" value="https://duckduckgo.com/?t=h_&q=%s" type="hidden"/> 
+            <input id="uv-address-searchbar" type="text" placeholder="search anything..." class="form__input"/>
+          </form>
+  <div class="navbar-right">
+          <div id="the-button-container">
+            <button id="stupidpxycontrols" onclick="goback()"><img id="roddypoor" src="/stuff/icons/back.svg" width="55px" height="55px" ></img></button>
+            <button id="stupidpxycontrols" onclick="rotatetozone()"><img id="roddypoor" src="/stuff/icons/forward.svg" width="55px" height="55px" ></img></button>
+            <button id="stupidpxycontrols" onclick="fn_reload()"><img id="roddypoor" src="/stuff/icons/reload.svg" width="55px" height="55px" ></img></button>
+            <button id="stupidpfpbutton" onclick="window.location.href='/math/index.html';"><img id="header-img-btn" src="/stuff/icons/gamepad-solid.svg" width="55px" height="55px" ></img></button>
+            <button id="stupidpfpbutton" onclick="window.location.href='/reading/';"><img id="header-img-btn" src="/stuff/icons/border-all-solid.svg" width="55px" height="55px" ></img></button>
+            <button id="stupidpfpbutton" onclick="window.location.href='/settings.html';"><img id="header-img-btn" src="/stuff/icons/settings.png" width="55px" height="55px" ></img></button>
+            <button id="stupidpfpbutton" onclick="window.location.href='/profile/';"><img id="profile-pic" src="/stuff/icons/user.png" width="55px" height="55px" ></img></button>
+          </div>
+          <div id="loadingbar" style="width: 100%;"></div>
+        </div>
+    </header>
+    <iframe src="" id="iframeid" style="bottom: 0" marginheight="0px" marginwidth="0px"  allowfullscreen></iframe>
+    <style>
+        #uv-form{
+            padding: 3px;
+            height: 0
+        }
+    </style>
+    <script src="bundle.js" defer></script>
+    <script src="config.js?cdn" defer></script>
+    <script>
+          function fn_reload(){
+              var iframe = document.getElementById('iframeid');
+              iframe.src = iframe.contentWindow.location.href;
+          }
+          function goFullscreen(id) {
+        var element = document.getElementById(id);
+        if (element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullScreen) {
+          element.webkitRequestFullScreen();
+        }
+    }
+    function goback(){
+      iframe.contentWindow.history.back()
+    }
+    function rotatetozone(){
+      iframe.contentWindow.history.forward()
+    }
+const iframe = document.querySelector('iframe');
+let lastURL = '';
+
+function checkIframeURL() {
+    try {
+        const currentURL = iframe.contentWindow.location.href;
+
+        if (currentURL !== lastURL) {
+            console.log(`Iframe URL changed to: ${currentURL}`);
+            lastURL = currentURL;
+
+            const websitePath = currentURL
+                .replace(window.location.origin, "")
+                .replace("/frog/ixl/", "");
+            localStorage.setItem("decoded", websitePath);
+            const decodedValue = __uv$config.decodeUrl(websitePath);
+            document.getElementById("uv-address-searchbar").value = decodedValue;
+            if (document.getElementById("uv-address-searchbar").value === "a`owt8bnalk"){
+              document.getElementById("uv-address-searchbar").value = "loading your content..."
+            }
+            monitorIframeProgress(iframe.contentWindow);
+        }
+    } catch (error) {
+        console.error('Cannot access iframe URL due to cross-origin policy');
+    }
+}
+
+function monitorIframeProgress(iframeWindow) {
+    if (!iframeWindow || !iframeWindow.document) {
+        console.warn('Unable to monitor iframe due to restrictions.');
+        return;
+    }
+    document.getElementById("loadingbar").style = "width: 10%; opacity: 1;"
+    const onLoad = () => {
+        console.log('Iframe page has fully loaded.');
+        document.getElementById("loadingbar").style = "width: 100%; opacity: 0;"
+        iframeWindow.removeEventListener('load', onLoad);
+    };
+
+    iframeWindow.addEventListener('load', onLoad);
+}
+
+
+// Periodically check the iframe URL every second
+setInterval(checkIframeURL, 1000);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyAydynhitaENUPOr8S-glDFflJMZCZbZYY",
+          authDomain: "nfgrhtaer4wt4yh4r.firebaseapp.com",
+          projectId: "nfgrhtaer4wt4yh4r",
+          storageBucket: "nfgrhtaer4wt4yh4r.appspot.com",
+          messagingSenderId: "741433768105",
+          appId: "1:741433768105:web:fad81fc01ccb2fddc951b8"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+        const database = firebase.database();
+        var provider = new firebase.auth.GoogleAuthProvider();
+
+      // Set up the Google provider
+
+      // Function to handle Google Sign-In
+      function googleSignIn() {
+        auth.signInWithPopup(provider)
+          .then((result) => {
+            // User signed in successfully.
+            const user = result.user;
+            console.log('User:', user);
+            displayUserProfile(user);
+          }).catch((error) => {
+            // Handle Errors here.
+            console.error('Error during sign-in:', error);
+          });
+      }
+
+      // Function to display user profile
+      function displayUserProfile(user) {
+        if (user) {
+          const profilePicUrl = user.photoURL;
+          document.getElementById('profile-pic').src = profilePicUrl;
+          document.getElementById('user-name').textContent = user.displayName;
+        }
+      }
+
+      // Function to handle sign-out
+      function signOut() {
+        auth.signOut().then(() => {
+          // Sign-out successful.
+          document.getElementById('big-profile-pic').src = '';
+          document.getElementById('profile-pic').src = '';
+          document.getElementById('user-name').textContent = '';
+          console.log('User signed out.');
+        }).catch((error) => {
+          // An error happened.
+          console.error('Error during sign-out:', error);
+        });
+      }
+
+      // Function to display user profile
+      function displayUserProfile(user) {
+        if (user) {
+          const profilePicUrl = user.photoURL;
+          document.getElementById('profile-pic').src = profilePicUrl;
+          document.getElementById('big-profile-pic').src = profilePicUrl;
+          document.getElementById('user-name').textContent = user.displayName;
+        }
+      }
+
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          // User is signed in.
+          displayUserProfile(user);
+          
+        } else {
+          // User is signed out.
+          document.getElementById('profile-pic').src = '/stuff/icons/user.png';
+          document.getElementById('big-profile-pic').src = '/stuff/icons/user.png';
+          document.getElementById('user-name').textContent = '';
+        }
+      });
+    </script>
+
+</body>
+
+</html>
