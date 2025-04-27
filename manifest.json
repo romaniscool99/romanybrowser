@@ -1,0 +1,21 @@
+{ 
+
+  "name": "romany browser v1", 
+
+  "short_name": "romany browser v1", 
+
+  "start_url": "/", 
+
+  "display": "standalone", 
+
+  "icons": [{ 
+
+    "src": "toro.png", 
+
+    "sizes": "512x512", 
+
+    "type": "image/png" 
+
+  }] 
+
+}
