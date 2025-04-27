@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>romany</title>
+        <link rel="icon" href="logo.png">
+        <link rel="manifest" href="manifest.json"/>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="alert.css">
+        <script src="loading.js"></script>
+        <script src="settings.js"></script>
+        <script src="moresettings.js"></script>
+        <script src="alert.js"></script>
+        <script src="messages.js"></script>
+        <link rel="icon" href="/logo.png">
+        <meta property="og:title" content="romany">
+        <meta name="theme-color" content="#00ffa6">
+        <meta name="msapplication-TileColor" content="#00ffa6">
+        <meta property="og:image" content="logo.png">
+        <meta name="description" content="one of the best game sites out there!">
+        <meta property="og:description" content="one of the best game sites out there!">
+    </head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JMXEZ1F6QH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JMXEZ1F6QH');
+</script>
+    <body>
+        <div id="loading-screen">
+            <div class="spinner">
+                <div></div>   
+                <div></div>    
+                <div></div>    
+                <div></div>    
+              </div>
+              <br>
+              <br>
+              <br>              
+            <h1 id="messageforyou"></h1>
+            <div id="dabottom" style="display: none">
+                <h1><a onclick="loadthething()">skip ts loading</a></h1>
+            </div>
+        </div>
+        <div id="header">
+            <img class="headericons" style="transform: scale(1.3);" src="logo.png" onclick="window.location.href='/';">
+            <div class="right">
+                <img class="headericons" src="/stuff/icons/handshake-solid.svg" onclick="window.location.href='/partners.html';">
+            </div>
+        </div>
+        <div class="message-box" id="messageBox"></div>
+        <div id="roddyricchboxhome">
+            <h1>romany browser v4</h1>
+            <br>
+            <form autocomplete="off" id="uv-form">
+                <input autocomplete="false" name="hidden" type="hidden" style="display:none;">
+                <input id="uv-search-engine" value="https://duckduckgo.com/?t=h_&amp;ia=web&amp;q=%s" type="hidden"> 
+                <input id="uv-address" type="username" placeholder="search anything..." class="form__input">
+              </form>
+            <p>motd: welcome to v1</p>
+            <button id="discord" onclick="window.open('https://roman.soloo.fun')">made by roman</button>
+            <br>
+        </div>
+        <div id="footer">
+            <p id="online">online users:</p>
+            <div class="right">
+            </div>
+        </div>
+        <div id="lowtaperfade"></div>
+        <div id="particles-js"></div>
+        <script src="particles.js"></script>
+        <script src="app.js"></script>
+        <script src="bundle.js" defer></script>
+        <script src="config.js?cdn" defer></script>
+        <script>
+          const form = document.querySelector("#uv-form");
+          const input = document.querySelector("#uv-address");
+          console.log(form)
+          console.log(input)
+          document.addEventListener("DOMContentLoaded", function () {
+          form.addEventListener("submit", async (event) => {
+          console.log('hi')
+          event.preventDefault();
+          window.navigator.serviceWorker
+          .register("sw.js", {
+            scope: __uv$config.prefix,
+          })
+          .then(() => {
+            let url = input.value.trim();
+            if (!isUrl(url)) url = "https://duckduckgo.com/?t=h_&ia=web&q=" + url;
+            else if (!(url.startsWith("https://") || url.startsWith("http://")))
+              url = "http://" + url;
+            if (url === "http://now.gg") {
+          alert('you are going to a broken site! redirecting you to https://nowgg.lol/hub')
+          url = "https://nowgg.lol/hub"
+        }
+          else if (url === "http://now.gg/") {
+            alert('you are going to a broken site! redirecting you to https://nowgg.lol/hub')
+            url = "https://nowgg.lol/hub"
+        }
+          else if (url === "https://now.gg") {
+            alert('you are going to a broken site! redirecting you to https://nowgg.lol/hub')
+            url = "https://nowgg.lol/hub"
+        }
+          else if (url === "https://now.gg/") {
+            alert('you are going to a broken site! redirecting you to https://nowgg.lol/hub')
+            url = "https://nowgg.lol/hub"
+        }
+            sessionStorage.setItem("encodedUrl", __uv$config.encodeUrl(url));
+            location.href = "calculus";
+          });
+      });
+    });
+    function isUrl(val = "") {
+      if (
+        /^http(s?):\/\//.test(val) ||
+        (val.includes(".") && val.slice(0, 1) !== " ")
+      )
+        return true;
+      return false;
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+    const inputs = document.querySelectorAll("input");
+    
+    inputs.forEach(input => {
+        input.addEventListener("focus", function () {
+            this.dataset.placeholder = this.placeholder;
+            this.placeholder = "";
+        });
+        
+        input.addEventListener("blur", function () {
+            this.placeholder = this.dataset.placeholder;
+        });
+    });
+});
+async function checkBrowserSupport() {
+  const continuebutton = [
+        "aight",
+        'ok',
+        "great!",
+        "cool!",
+    ];    
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+if (isSafari) {
+  if (!tabData.mobilescreen){
+    document.getElementsByClassName('rizzpopup')[0].style.opacity = "1";
+    document.getElementsByClassName('rizzpopup')[0].style.visibility = "visible";
+    document.getElementById('continue').innerText = continuebutton[Math.floor(Math.random() * continuebutton.length)]
+    console.log('mobile popup shown')
+  }
+}
+document.getElementById('continue').addEventListener('click', function() {
+  document.getElementsByClassName('rizzpopup')[0].style.opacity = "0";
+  document.getElementsByClassName('rizzpopup')[0].style.visibility = "hidden";
+            EnableMobileScreen()
+        });
+console.log('mobile user, already has set their settings')
+}
+    function getprotocol(){
+    if (window.location.protocol === 'http:'){
+        return 'ws://'
+    }
+    else{
+        return 'wss://'
+    }
+}
+let socket
+function connectWebSocket() {
+    socket = new WebSocket(getprotocol() + window.location.host + '/api/onlineusers');
+
+    socket.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    document.getElementById("online").innerText = `online users: ${data.users}`;
+};
+
+socket.onclose = () => {
+    console.warn(`attempting to get online users...`, event);
+    setTimeout(connectWebSocket, 5000);
+    document.getElementById("online").innerText = "online users: ?";
+};
+
+socket.onerror = function(error) {
+        console.error(`WebSocket error:`, error);
+        webSocket.close();
+    };
+}
+connectWebSocket();
+function loadthething(){
+    const loadingScreen = document.getElementById('loading-screen');
+            setTimeout(function() {
+                loadingScreen.classList.add('fade-out');
+                setTimeout(function() {
+                    document.body.classList.remove('loading');
+                }, 100);
+            }, 100);
+        }
+document.addEventListener("DOMContentLoaded", async () => {
+  await checkBrowserSupport();
+});
+
+        </script>        
+        <div class="rizzpopup">
+          <div id="roddyrichesbox">
+            <h5>welcome, mobile user!</h1>
+            <h6>since we have detected you as a mobile user, we have turned on Mobile Game Sizer!</h6>
+            <h6>you can change this in <a href="/settings.html">settings</a> if you so choose.</h6>
+            <button class="smallbutton" id="continue">great!</button>
+          </div>
+        </div>  
+    </body>
+</html>
